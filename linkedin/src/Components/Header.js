@@ -1,54 +1,57 @@
-import React from "react";
-import styled from "styled-components";
-import { connect } from "react-redux";
-import { signOutApi } from "../actions";
+import React from 'react';
+import styled from 'styled-components';
+import { connect } from 'react-redux';
+import { signOutApi } from '../actions';
+import { Link } from 'react-router-dom';
 
 const Header = (props) => {
   return (
     <Container>
       <Content>
         <Logo>
-          <a href="/home">
-            <img src="/images/home-logo.svg" alt="Logo" />
+          <a href='/home'>
+            <img src='/images/home-logo.svg' alt='Logo' />
           </a>
         </Logo>
         <SearchBar>
           <div>
-            <input type="text" placeholder="Search"></input>
+            <input type='text' placeholder='Search'></input>
           </div>
           <div>
-            <img src="/images/search-icon.svg" alt="Search" />
+            <img src='/images/search-icon.svg' alt='Search' />
           </div>
         </SearchBar>
         <Nav>
           <NavListWrap>
-            <NavList className="active">
+            <NavList className='active'>
               <a>
-                <img src="/images/nav-home.svg" alt="Nav" />
+                <img src='/images/nav-home.svg' alt='Nav' />
                 <span>Home</span>
               </a>
             </NavList>
             <NavList>
-              <a>
-                <img src="/images/nav-network.svg" alt="Nav" />
-                <span>My Network</span>
-              </a>
+              <Link to='/home/mynetwork'>
+                <a>
+                  <img src='/images/nav-network.svg' alt='Nav' />
+                  <span>My Network</span>
+                </a>
+              </Link>
             </NavList>
             <NavList>
               <a>
-                <img src="/images/nav-jobs.svg" alt="Nav" />
+                <img src='/images/nav-jobs.svg' alt='Nav' />
                 <span>Jobs</span>
               </a>
             </NavList>
             <NavList>
               <a>
-                <img src="/images/nav-messaging.svg" alt="Nav" />
+                <img src='/images/nav-messaging.svg' alt='Nav' />
                 <span>Messaging</span>
               </a>
             </NavList>
             <NavList>
               <a>
-                <img src="/images/nav-notifications.svg" alt="Nav" />
+                <img src='/images/nav-notifications.svg' alt='Nav' />
                 <span>Notification</span>
               </a>
             </NavList>
@@ -56,23 +59,23 @@ const Header = (props) => {
             <User>
               <a>
                 {props.user && props.user.photoURL ? (
-                  <img src={props.user.photoURL} alt="" />
+                  <img src={props.user.photoURL} alt='' />
                 ) : (
-                  <img src="/images/user.svg" alt="User" />
+                  <img src='/images/user.svg' alt='User' />
                 )}
                 <span>
                   Me
-                  <img src="/images/down-icon.svg" alt="Down" />
+                  <img src='/images/down-icon.svg' alt='Down' />
                 </span>
               </a>
               <SignOut onClick={() => props.signOut()}>SignOut</SignOut>
             </User>
             <Work>
               <a>
-                <img src="/images/nav-work.svg" alt="Work" />
+                <img src='/images/nav-work.svg' alt='Work' />
                 <span>
                   Work
-                  <img src="/images/down-icon.svg" alt="Down" />
+                  <img src='/images/down-icon.svg' alt='Down' />
                 </span>
               </a>
             </Work>
@@ -160,7 +163,7 @@ const NavListWrap = styled.ul`
 
   .active {
     span:after {
-      content: "";
+      content: '';
       transform: scale(1);
       border-bottom: 2px solid black;
       position: absolute;
